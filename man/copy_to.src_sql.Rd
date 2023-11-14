@@ -14,6 +14,7 @@
   unique_indexes = NULL,
   indexes = NULL,
   analyze = TRUE,
+  check_from = TRUE,
   ...,
   in_transaction = TRUE
 )

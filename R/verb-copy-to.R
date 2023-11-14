@@ -54,6 +54,7 @@ copy_to.src_sql <- function(dest,
                             unique_indexes = NULL,
                             indexes = NULL,
                             analyze = TRUE,
+                            check_from = TRUE,
                             ...,
                             in_transaction = TRUE) {
   check_bool(temporary)
@@ -88,7 +89,7 @@ copy_to.src_sql <- function(dest,
       ...
     )
 
-    out <- tbl_src_dbi(dest, name, vars = names(df))
+    out <- tbl_src_dbi(dest, name, vars = names(df), check_from = check_from)
   }
 
   invisible(out)

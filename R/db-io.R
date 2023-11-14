@@ -41,6 +41,7 @@ db_copy_to <-  function(con,
                         unique_indexes = NULL,
                         indexes = NULL,
                         analyze = TRUE,
+                        check_from = TRUE,
                         in_transaction = TRUE) {
   as_table_ident(table)
   check_bool(overwrite)
@@ -48,6 +49,7 @@ db_copy_to <-  function(con,
   check_named(types)
   check_bool(temporary)
   check_bool(analyze)
+  check_bool(check_from)
   check_dots_used()
   check_bool(in_transaction)
 
@@ -64,6 +66,7 @@ db_copy_to.DBIConnection <- function(con,
                                      unique_indexes = NULL,
                                      indexes = NULL,
                                      analyze = TRUE,
+                                     check_from = TRUE,
                                      in_transaction = TRUE) {
   table <- as_table_ident(table)
   new <- db_table_temporary(con, table, temporary)

@@ -88,9 +88,9 @@ tbl.src_dbi <- function(src, from, ...) {
 # Internal calls to `tbl()` should be avoided in favor of tbl_src_dbi().
 # The former may query the database for column names if `vars` is omitted,
 # the latter always requires `vars`.
-tbl_src_dbi <- function(src, from, vars) {
+tbl_src_dbi <- function(src, from, vars, check_from = TRUE) {
   force(vars)
-  tbl(src, from, vars = vars)
+  tbl(src, from, vars = vars, check_from = check_from)
 }
 
 
